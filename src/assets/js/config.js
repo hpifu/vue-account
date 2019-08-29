@@ -1,7 +1,7 @@
 export default {
-    org: "hatlonely",
+    org: "hpifu",
     api: {
-        account: "http://127.0.0.1:16060",
+        account: "https://api.account.hatlonely.com",
         cloud: "http://127.0.0.1:16061"
     }
 }
