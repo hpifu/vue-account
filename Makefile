@@ -11,7 +11,7 @@ endif
 
 .PHONY: buildenv
 buildenv:
-	docker run --name vue-build-env -d node:12.9.0-alpine tail -f /dev/null
+	docker run --name vue-build-env -d node:12.8.1-alpine tail -f /dev/null
 
 .PHONY: image
 image:
