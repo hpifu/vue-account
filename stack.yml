@@ -13,5 +13,5 @@ services:
     networks:
       - vue-accountnet
 networks:
-  vueaccountnet:
+  vue-accountnet:
     name: vue-accountnet
