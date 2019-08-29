@@ -26,9 +26,6 @@ image:
 
 .PHONY: deploy
 deploy:
-	mkdir -p ${HOME}/var/docker/${repository}/log
-	mkdir -p ${HOME}/var/docker/${repository}/run
-	mkdir -p ${HOME}/var/docker/${repository}/data
 	docker stack deploy -c stack.yml ${repository}
 
 .PHONY: remove
