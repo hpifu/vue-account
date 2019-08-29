@@ -1,6 +1,6 @@
 repository=vue-account
 user=hatlonely
-version=$(shell git describe --tags | awk -F "-" '{print $$1}')
+version=$(shell git describe --tags)
 
 UNAME_S := $(shell uname -s)
 ifeq ($(UNAME_S),Darwin)
