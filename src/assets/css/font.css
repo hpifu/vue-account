@@ -1,0 +1,34 @@
+@font-face {
+    font-family: "yahei";
+    src: url("../font/yahei.ttf");
+}
+
+@font-face {
+    font-family: "Liu Jian Mao Cao";
+    src: url("../font/LiuJianMaoCao-Regular.ttf");
+}
+
+@font-face {
+    font-family: "ZCool XiaoWei";
+    src: url("../font/ZCOOLXiaoWei-Regular.ttf");
+}
+
+@font-face {
+    font-family: "Red Hat Text";
+    src: url("../font/RedHatText-Regular.ttf");
+}
+
+@font-face {
+    font-family: "Montserrat";
+    src: url("../font/Montserrat-Regular.ttf");
+}
+
+@font-face {
+    font-family: "Noto Sans SC";
+    src: url("../font/NotoSansSC-Regular.otf");
+}
+
+@font-face {
+    font-family: "Source Han Sans SC";
+    src: url("../font/SourceHanSansSC-Regular.otf");
+}
