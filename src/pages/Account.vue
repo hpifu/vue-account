@@ -6,7 +6,7 @@
     <v-content>
       <v-flex xs12 sm12 md12 lg10 xl10 px-10>
         <v-layout align-center justify-center text-center row wrap>
-          <transition name="slide-x-transition" mode="out-in">
+          <transition name="fade">
             <router-view v-if="this.$store.state.account.isSignedIn"></router-view>
             <h-introduction v-else />
           </transition>

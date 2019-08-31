@@ -6,7 +6,7 @@
       <span class="body-2">账号</span>
     </v-toolbar-title>
     <v-spacer></v-spacer>
-    <v-text-field
+    <!-- <v-text-field
       v-if="this.$store.state.account.isSignedIn"
       v-model="search"
       prepend-inner-icon="search"
@@ -18,7 +18,7 @@
       class="mt-9"
       filled
       full-width
-    ></v-text-field>
+    ></v-text-field>-->
     <v-spacer></v-spacer>
     <v-btn text icon>
       <v-icon>apps</v-icon>

@@ -1,9 +1,11 @@
 const axios = require("axios");
 import config from '../assets/js/config';
 
+let cf = config[process.env.NODE_ENV];
+
 export default {
     async signIn(username, password) {
-        const res = await axios.post(config.api.account + "/signin",
+        const res = await axios.post(cf.api.account + "/signin",
             {
                 username, password
             },
@@ -12,7 +14,7 @@ export default {
         return res.data
     },
     async verify(field, value) {
-        const res = await axios.get(config.api.account + "/verify",
+        const res = await axios.get(cf.api.account + "/verify",
             {
                 params: {
                     field, value
@@ -24,7 +26,7 @@ export default {
     },
     async genAuthCode(type, value, firstName, lastName) {
         if (type == "email") {
-            const res = await axios.post(config.api.account + "/genauthcode",
+            const res = await axios.post(cf.api.account + "/genauthcode",
                 {
                     type, firstName, lastName,
                     email: value,
@@ -34,7 +36,7 @@ export default {
             return res.data
         }
         if (type == "phone") {
-            const res = await axios.post(config.api.account + "/genauthcode",
+            const res = await axios.post(cf.api.account + "/genauthcode",
                 {
                     type, firstName, lastName,
                     phone: value,
@@ -46,7 +48,7 @@ export default {
     },
     async verifyAuthCode(type, value, code) {
         if (type == "email") {
-            const res = await axios.get(config.api.account + "/verifyauthcode", {
+            const res = await axios.get(cf.api.account + "/verifyauthcode", {
                 params: {
                     type, code, email: value,
                 },
@@ -55,7 +57,7 @@ export default {
             return res.data
         }
         if (type == "phone") {
-            const res = await axios.get(config.api.account + "/verifyauthcode", {
+            const res = await axios.get(cf.api.account + "/verifyauthcode", {
                 params: {
                     type, code, phone: value,
                 },
@@ -65,20 +67,20 @@ export default {
         }
     },
     async signUp(email, phone, password, firstName, lastName, birthday, gender, code) {
-        const res = await axios.post(config.api.account + "/signup", {
+        const res = await axios.post(cf.api.account + "/signup", {
             email, phone, password, firstName, lastName, birthday, gender, code
         });
         return res.data
     },
     async getAccount(token) {
-        const res = await axios.get(config.api.account + "/getaccount", {
+        const res = await axios.get(cf.api.account + "/getaccount", {
             params: { token },
             withCredentials: true
         });
         return res.data
     },
     async update(token, obj) {
-        const res = await axios.post(config.api.account + "/update",
+        const res = await axios.post(cf.api.account + "/update",
             { ...obj, token },
             { withCredentials: true }
         );

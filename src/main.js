@@ -17,7 +17,7 @@ Vue.config.productionTip = false;
 Vue.use(VueRouter);
 Vue.use(Vuex);
 Vue.use(VueCookies);
-Vue.use(VueConfig, config);
+Vue.use(VueConfig, config[process.env.NODE_ENV]);
 
 const router = new VueRouter({
   mode: 'history',
