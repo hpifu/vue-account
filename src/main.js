@@ -43,7 +43,7 @@ const router = new VueRouter({
     {
       path: '/signin', component: () => import('./pages/SignIn'),
       children: [
-        { path: '', component: () => import('./components/signin/Username') },
+        { path: '', component: () => import('./components/signin/SignIn') },
         { path: 'password', component: () => import('./components/signin/Password') },
         { path: 'sorry', component: () => import('./components/signin/Sorry') },
       ]
