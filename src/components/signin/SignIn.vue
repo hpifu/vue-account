@@ -1,13 +1,13 @@
 <template>
   <v-card width="450" height="400" flat outlined>
-    <v-flex mt-8 xs12 lg12>
-      <h2 class="teal--text">
-        <strong>{{this.$config.org}}</strong>
-      </h2>
-    </v-flex>
-    <v-flex xs12 lg12>
-      <h2>登陆</h2>
-    </v-flex>
+    <v-layout row wrap mx-0 text-left px-12>
+      <v-flex mt-8 xs12 lg12>
+        <Logo />
+      </v-flex>
+      <v-flex xs12 lg12>
+        <h2>登陆</h2>
+      </v-flex>
+    </v-layout>
     <v-form ref="form" v-model="valid" lazy-validation>
       <v-flex mx-12 mt-6>
         <v-text-field
@@ -51,8 +51,12 @@
 <script>
 const axios = require("axios");
 import rules from "../../assets/js/rules";
+import Logo from "../Logo";
 
 export default {
+  components: {
+    Logo
+  },
   methods: {
     async validate() {
       if (this.$refs.form.validate()) {

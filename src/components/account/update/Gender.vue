@@ -1,9 +1,7 @@
 <template>
-  <v-card :loading="loading" width="450" height="500" flat outlined class="mt-12">
+  <v-card :loading="loading" width="450" height="400" flat outlined class="mt-12">
     <v-flex mt-8 mb-5 xs12 lg12>
-      <v-layout align-center justify-center>
-        <v-img :src="require('../../../assets/img/logo.png')" max-width="70" inline></v-img>
-      </v-layout>
+      <Logo />
     </v-flex>
     <v-flex my-4 xs12 lg12>
       <h2>修改</h2>
@@ -46,8 +44,12 @@
 <script>
 const axios = require("axios");
 import rules from "../../../assets/js/rules";
+import Logo from "../../Logo";
 
 export default {
+  components: {
+    Logo
+  },
   methods: {
     async validate() {
       if (this.$refs.form.validate()) {

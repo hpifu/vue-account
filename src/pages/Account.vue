@@ -6,10 +6,10 @@
     <v-content>
       <v-flex xs12 sm12 md12 lg10 xl10 px-10>
         <v-layout align-center justify-center text-center row wrap>
-          <transition name="fade">
-            <router-view v-if="this.$store.state.account.isSignedIn"></router-view>
-            <h-introduction v-else />
+          <transition v-if="this.$store.state.account.isSignedIn" name="slide-y-transition">
+            <router-view></router-view>
           </transition>
+          <h-introduction v-else />
         </v-layout>
       </v-flex>
     </v-content>

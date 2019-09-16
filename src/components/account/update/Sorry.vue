@@ -1,5 +1,5 @@
 <template>
-  <v-card width="450" height="500" flat outlined class="mt-12">
+  <v-card width="450" height="400" flat outlined class="mt-12">
     <v-flex mt-8 mb-5 xs12 lg12>
       <v-layout align-center justify-center>
         <v-img :src="require('../../../assets/img/logo.png')" max-width="70" inline></v-img>
@@ -22,3 +22,12 @@
   </v-card>
 </template>
 
+<script>
+import Logo from "../../Logo";
+
+export default {
+  components: {
+    Logo
+  }
+};
+</script>
