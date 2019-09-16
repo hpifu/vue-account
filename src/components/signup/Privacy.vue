@@ -1,18 +1,16 @@
 <template>
-  <v-card width="748" height="511" flat outlined>
+  <v-card :loading="loading" width="450" height="500" flat outlined>
     <v-layout row wrap mx-0 text-left px-8>
-      <v-flex xs8 pr-8>
+      <v-flex xs12>
         <v-flex mt-8 mb-5 xs12 lg12>
-          <v-layout>
-            <v-img :src="require('../../assets/img/logo.png')" max-width="70" inline></v-img>
-          </v-layout>
+          <Logo />
         </v-flex>
         <v-flex my-4 xs12 lg12>
           <h2>隐私权及条款</h2>
         </v-flex>
 
-        <v-flex my-4>
-          <v-card class="overflow-y-auto" height="300" flat>
+        <v-flex mt-4 mb-10>
+          <v-card class="overflow-y-auto" height="255" flat>
             <div class="body-2">
               <p>要创建 {{this.$config.org}} 帐号，您需要同意遵守下面的服务条款。</p>
               <p>此外，在您创建帐号后，我们会按照我们的隐私权政策来处理您的信息，其中包括以下这些要点：</p>
@@ -60,27 +58,18 @@
           </v-layout>
         </v-flex>
       </v-flex>
-
-      <v-flex xs4>
-        <v-layout align-center justify-center row fill-height mx-0 class="text-center">
-          <v-flex xs12>
-            <v-flex xs12>
-              <v-img :src="require('../../assets/img/signup_phone.svg')" max-width="244" inline></v-img>
-            </v-flex>
-            <v-flex xs12 px-4>
-              <p class="body-1">您的个人信息不会对外公开，并且绝对安全</p>
-            </v-flex>
-          </v-flex>
-        </v-layout>
-      </v-flex>
     </v-layout>
   </v-card>
 </template>
 
 <script>
 const axios = require("axios");
+import Logo from "../Logo";
 
 export default {
+  components: {
+    Logo
+  },
   methods: {
     async signup() {
       try {
@@ -90,6 +79,11 @@ export default {
         this.$router.push("/signup/sorry");
       }
     }
+  },
+  data() {
+    return {
+      loading: false
+    };
   }
 };
 </script>

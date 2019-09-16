@@ -1,11 +1,9 @@
 <template>
   <v-card width="748" height="511" flat outlined>
     <v-layout row wrap mx-0 text-left px-8>
-      <v-flex xs8 pr-8>
+      <v-flex xs12>
         <v-flex mt-8 mb-5 xs12 lg12>
-          <v-layout>
-            <v-img :src="require('../../assets/img/logo.png')" max-width="70" inline></v-img>
-          </v-layout>
+          <Logo />
         </v-flex>
         <v-flex my-4 xs12 lg12>
           <h2>出了点问题</h2>
@@ -29,27 +27,18 @@
           </v-layout>
         </v-flex>
       </v-flex>
-
-      <v-flex xs4>
-        <v-layout align-center justify-center row fill-height mx-0 class="text-center">
-          <v-flex xs12>
-            <v-flex xs12>
-              <v-img :src="require('../../assets/img/signup_phone.svg')" max-width="244" inline></v-img>
-            </v-flex>
-            <v-flex xs12 px-4>
-              <p class="body-1">您的个人信息不会对外公开，并且绝对安全</p>
-            </v-flex>
-          </v-flex>
-        </v-layout>
-      </v-flex>
     </v-layout>
   </v-card>
 </template>
 
 <script>
 const axios = require("axios");
+import Logo from "../Logo";
 
 export default {
+  components: {
+    Logo
+  },
   methods: {
     async signup() {
       try {

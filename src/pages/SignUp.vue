@@ -3,7 +3,7 @@
     <v-content>
       <v-layout align-center justify-center row fill-height text-center>
         <v-flex xs12>
-          <v-card class="mx-auto" width="748" flat color="rgba(0,0,0,0)">
+          <v-card class="mx-auto" width="450" flat color="rgba(0,0,0,0)">
             <transition name="slide-x-transition" mode="out-in">
               <router-view></router-view>
             </transition>
