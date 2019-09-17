@@ -144,6 +144,8 @@ export default {
             field: "avatar",
             avatar: this.imageFile.name
           });
+
+          this.loadSuccess = true;
         });
       }
     },
