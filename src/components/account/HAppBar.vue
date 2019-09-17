@@ -1,9 +1,7 @@
 <template>
   <v-app-bar app clipped-left elevate-on-scroll class="pb-3" color="#fafafa">
+    <Logo />
     <v-toolbar-title class="hlogo">
-      <span class="teal--text">
-        <strong>{{this.$config.org}}</strong>
-      </span>
       &nbsp;&nbsp;
       <span class="font-weight-light cyan--text">account</span>
     </v-toolbar-title>
@@ -27,13 +25,17 @@
 
 <style>
 .hlogo {
-  font-family: "Josefin Sans", "ZCOOL XiaoWei", sans-serif;
+  font-family: "ZCOOL XiaoWei";
 }
 </style>
 
 <script>
+import Logo from "../Logo";
+
 export default {
-  name: "HAppBar",
+  components: {
+    Logo
+  },
   data: () => ({
     loadSuccess: true
   })

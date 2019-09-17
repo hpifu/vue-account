@@ -6,6 +6,6 @@
 
 <style>
 h2.hlogo {
-  font-family: "Josefin Sans";
+  font-family: "ZCOOL XiaoWei";
 }
 </style>

@@ -15,12 +15,12 @@
           <v-layout>
             <v-flex xs9>
               <v-card-title>个人资料</v-card-title>
-              <v-card-text>
+              <!-- <v-card-text>
                 <p class="text-lg-left">
                   使用 {{this.$config.org}} 服务的其他用户可能会看到部分信息。
                   <a href="#">了解详情</a>
                 </p>
-              </v-card-text>
+              </v-card-text>-->
             </v-flex>
             <v-flex xs3 mt-6>
               <v-avatar size="40" @click="pickFile">
@@ -108,7 +108,6 @@
 </template>
 
 <script>
-const jdenticon = require("jdenticon");
 const axios = require("axios");
 
 export default {
