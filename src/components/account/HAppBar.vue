@@ -15,7 +15,8 @@
     <v-btn v-else to="/signin" color="#fafafa" depressed>
       <v-avatar size="30">
         <v-img
-          v-if="this.$store.state.account.avatar"
+          v-if="this.$store.state.account.avatar && loadSuccess"
+          v-on:error="loadSuccess = false"
           :src="this.$config.api.cloud + '/resource?name=' + this.$store.state.account.avatar + '&token='+ this.$cookies.get('token')"
         ></v-img>
         <v-icon v-else large>account_circle</v-icon>
@@ -34,7 +35,7 @@
 export default {
   name: "HAppBar",
   data: () => ({
-    search: ""
+    loadSuccess: true
   })
 };
 </script>

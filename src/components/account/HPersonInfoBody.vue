@@ -25,8 +25,9 @@
             <v-flex xs3 mt-6>
               <v-avatar size="40" @click="pickFile">
                 <v-img
-                  v-if="this.$store.state.account.avatar"
+                  v-if="this.$store.state.account.avatar && loadSuccess"
                   :src="this.$config.api.cloud + '/resource?name=' + this.$store.state.account.avatar + '&token='+ this.$cookies.get('token')"
+                  v-on:error="loadSuccess = false"
                 ></v-img>
                 <v-icon v-else large>account_circle</v-icon>
               </v-avatar>
@@ -159,6 +160,8 @@ export default {
       }[gender];
     }
   },
-  data: () => ({})
+  data: () => ({
+    loadSuccess: true
+  })
 };
 </script>
