@@ -2,7 +2,7 @@
   <v-card flat max-width="900" color="#fafafa">
     <v-layout mt-5 text-center wrap>
       <v-flex mb-5 xs12 lg12>
-        <div class="headline">个人信息</div>
+        <h2>个人信息</h2>
       </v-flex>
       <v-flex mb-5 xs12 lg12>
         <div class="body-1">您在 {{this.$config.org}} 服务中使用的基本信息，例如您的姓名和照片</div>
