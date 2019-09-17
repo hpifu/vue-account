@@ -5,7 +5,7 @@ version=$(shell git describe --tags)
 .PHONY: buildenv
 buildenv:
 	if [ -z "$(shell docker ps --filter name=vue-build-env -q)" ]; then \
-		docker run --name vue-build-env -d node:12.10.0-alpine tail -f /dev/null
+		docker run --name vue-build-env -d node:12.10.0-alpine tail -f /dev/null; \
 	fi
 
 .PHONY: cleanbuildenv
