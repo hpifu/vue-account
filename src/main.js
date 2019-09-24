@@ -10,9 +10,6 @@ import store from './store';
 
 import App from './App';
 
-import 'material-design-icons-iconfont/dist/material-design-icons.css';
-import 'font-awesome/css/font-awesome.min.css';
-
 Vue.config.productionTip = false;
 Vue.use(VueRouter);
 Vue.use(Vuex);

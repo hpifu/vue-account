@@ -46,7 +46,7 @@ export default {
         // { title: "首页", icon: "account_circle", to: "/account/home" },
         {
           title: "个人信息",
-          icon: "assignment_ind",
+          icon: "mdi-clipboard-account",
           to: "/account/personinfo"
         },
         // { title: "数据和个性化", icon: "toggle_on", to: "/" },
@@ -54,8 +54,8 @@ export default {
         // { title: "用户和分享", icon: "people", to: "/" },
         // { title: "付费和订阅", icon: "payment", to: "/" },
         { divider: true },
-        { title: "帮助", icon: "help_outline", to: "/" },
-        { title: "发送反馈", icon: "feedback", to: "/" }
+        { title: "帮助", icon: "mdi-help-circle", to: "/" },
+        { title: "发送反馈", icon: "mdi-comment-processing", to: "/" }
       ]
     };
   }
