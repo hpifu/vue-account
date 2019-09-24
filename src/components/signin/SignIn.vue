@@ -2,7 +2,7 @@
   <v-card width="450" height="400" flat outlined>
     <v-layout row wrap mx-0 text-left px-12>
       <v-flex mt-8 xs12 lg12>
-        <Logo />
+        <Logo :value="$config.org" />
       </v-flex>
       <v-flex xs12 lg12>
         <h2>登陆</h2>

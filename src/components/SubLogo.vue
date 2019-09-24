@@ -1,11 +1,11 @@
 <template>
-  <span class="teal--text hlogo-title">{{value}}</span>
+  <span class="cyan--text hlogo-text">{{value}}</span>
 </template>
 
 <style>
-span.hlogo-title {
+span.hlogo-text {
   font-family: "Monoton";
-  font-size: 1.5rem;
+  font-size: 1.2rem;
 }
 </style>
 
@@ -13,7 +13,7 @@ span.hlogo-title {
 export default {
   props: {
     value: {
-      default: "title"
+      default: "text"
     }
   }
 };

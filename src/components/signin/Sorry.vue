@@ -3,7 +3,7 @@
     <v-layout row wrap mx-0 text-left px-8>
       <v-flex xs12>
         <v-flex mt-8 mb-5 xs12 lg12>
-          <Logo />
+          <Logo :value="$config.org" />
         </v-flex>
         <v-flex my-4 xs12 lg12>
           <h2>出了点问题</h2>

@@ -1,10 +1,7 @@
 <template>
   <v-app-bar app clipped-left elevate-on-scroll class="pb-3" color="#fafafa">
-    <Logo />
-    <v-toolbar-title class="hlogo">
-      &nbsp;&nbsp;
-      <span class="font-weight-light cyan--text">account</span>
-    </v-toolbar-title>
+    <Logo :value="$config.org" />&nbsp;&nbsp;
+    <SubLogo value="account" />
     <v-spacer></v-spacer>
     <v-btn text icon>
       <v-icon>apps</v-icon>
@@ -23,18 +20,14 @@
   </v-app-bar>
 </template>
 
-<style>
-.hlogo {
-  font-family: "ZCOOL XiaoWei";
-}
-</style>
-
 <script>
 import Logo from "../Logo";
+import SubLogo from "../SubLogo";
 
 export default {
   components: {
-    Logo
+    Logo,
+    SubLogo
   },
   data: () => ({
     loadSuccess: true
