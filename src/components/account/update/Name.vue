@@ -1,7 +1,7 @@
 <template>
   <v-card :loading="loading" width="450" height="400" flat outlined class="mt-12">
     <v-flex mt-8 mb-5 xs12 lg12>
-      <Logo />
+      <Logo :value="$config.org" />
     </v-flex>
     <v-flex my-4 xs12 lg12>
       <h2>修改</h2>

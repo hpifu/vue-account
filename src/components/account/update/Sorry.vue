@@ -1,9 +1,7 @@
 <template>
   <v-card width="450" height="400" flat outlined class="mt-12">
     <v-flex mt-8 mb-5 xs12 lg12>
-      <v-layout align-center justify-center>
-        <v-img :src="require('../../../assets/img/logo.png')" max-width="70" inline></v-img>
-      </v-layout>
+      <Logo :value="$config.org" />
     </v-flex>
     <v-flex my-4 xs12 lg12>
       <h2>出了点问题</h2>
