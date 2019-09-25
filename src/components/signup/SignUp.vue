@@ -46,7 +46,7 @@
                 <v-text-field
                   v-model="password"
                   label="输入您的密码"
-                  :append-icon="show ? 'visibility' : 'visibility_off'"
+                  :append-icon="show ? 'mdi-eye' : 'mdi-eye-off'"
                   :type="show ? 'text' : 'password'"
                   @click:append="show = !show"
                   :rules="[rules.required, rules.atleast8characters]"

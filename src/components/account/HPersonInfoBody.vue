@@ -29,7 +29,7 @@
                   :src="this.$config.api.cloud + '/resource?name=' + this.$store.state.account.avatar + '&token='+ this.$cookies.get('token')"
                   v-on:error="loadSuccess = false"
                 ></v-img>
-                <v-icon v-else large>account_circle</v-icon>
+                <v-icon v-else large>mdi-account-circle</v-icon>
               </v-avatar>
 
               <input
