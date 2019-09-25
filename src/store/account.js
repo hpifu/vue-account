@@ -62,19 +62,22 @@ const actions = {
             return res
         }
     },
-    async getAccount({ commit }, token) {
-        const res = await api.getAccount(token)
-        if (res.ok) {
-            const account = res.account
-            commit("setFirstName", account.firstName)
-            commit("setLastName", account.lastName)
-            commit("setEmail", account.email)
-            commit("setPhone", account.phone)
-            commit("setBirthday", account.birthday)
-            commit("setGender", account.gender)
-            commit("setIsSignedIn", true)
-            commit("setAvatar", account.avatar)
-        }
+    GETAccount({ commit }, token) {
+        api.GETAccount(token, res => {
+            if (res.status == 200) {
+                const account = res.data
+                commit("setFirstName", account.firstName)
+                commit("setLastName", account.lastName)
+                commit("setEmail", account.email)
+                commit("setPhone", account.phone)
+                commit("setBirthday", account.birthday)
+                commit("setGender", account.gender)
+                commit("setIsSignedIn", true)
+                commit("setAvatar", account.avatar)
+            }
+        }, err => {
+            console.log(err)
+        })
     },
     async update({ commit }, { token, field, firstName, lastName, birthday, gender, password, oldPassword, email, phone, avatar }) {
         if (field == "name") {

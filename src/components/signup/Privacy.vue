@@ -73,7 +73,7 @@ export default {
   methods: {
     async signup() {
       try {
-        const res = await this.$store.dispatch("signup/signUp");
+        this.$store.dispatch("signup/SignUp");
         this.$router.push("/account");
       } catch (error) {
         this.$router.push("/signup/sorry");

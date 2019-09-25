@@ -17,7 +17,6 @@
 </template>
 
 <script>
-const axios = require("axios");
 import HAppBar from "../components/account/HAppBar";
 import HSider from "../components/account/HSider";
 import HIntroduction from "../components/account/HIntroduction";
@@ -29,14 +28,11 @@ export default {
     HSider,
     HIntroduction
   },
-  async created() {
+  created() {
     this.loading = true;
     if (this.$cookies.get("token")) {
       try {
-        await this.$store.dispatch(
-          "account/getAccount",
-          this.$cookies.get("token")
-        );
+        this.$store.dispatch("account/GETAccount", this.$cookies.get("token"));
       } catch (error) {
         console.log(error);
       }

@@ -63,8 +63,26 @@ const actions = {
             return api.verifyAuthCode(type, state.phone, state.code)
         }
     },
-    signUp({ state }) {
-        return api.signUp(state.email, state.phone, state.password, state.firstName, state.lastName, state.birthday, state.gender, state.code)
+    SignUp({ state }) {
+        return api.SignUp({
+            email: state.email,
+            phone: state.phone,
+            password: state.password,
+            firstName: state.firstName,
+            lastName: state.lastName,
+            birthday: state.birthday,
+            gender: state.gender,
+            code: state.code,
+        }, res => {
+            if (res.status == 201) {
+                // success
+            }
+            if (res.status == 400) {
+                console.log(res.data)
+            }
+        }, err => {
+            console.log(err)
+        })
     }
 }
 

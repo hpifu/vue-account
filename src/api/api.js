@@ -66,18 +66,15 @@ export default {
             return res.data
         }
     },
-    async signUp(email, phone, password, firstName, lastName, birthday, gender, code) {
-        const res = await axios.post(cf.api.account + "/signup", {
+    SignUp({ email, phone, password, firstName, lastName, birthday, gender, code }, callback, fallback) {
+        axios.put(cf.api.account + "/account", {
             email, phone, password, firstName, lastName, birthday, gender, code
-        });
-        return res.data
+        }).then(callback).catch(fallback);
     },
-    async getAccount(token) {
-        const res = await axios.get(cf.api.account + "/getaccount", {
-            params: { token },
+    GETAccount(token, callback, fallback) {
+        axios.get(cf.api.account + "/account/" + token, {
             withCredentials: true
-        });
-        return res.data
+        }).then(callback).catch(fallback);
     },
     async update(token, obj) {
         const res = await axios.post(cf.api.account + "/update",
