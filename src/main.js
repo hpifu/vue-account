@@ -20,7 +20,7 @@ const router = new VueRouter({
   mode: 'history',
   base: __dirname,
   routes: [
-    { path: '/', redirect: '/account/' },
+    { path: '/', redirect: '/account' },
     {
       path: '/account', component: () => import('./pages/Account'),
       children: [
