@@ -132,7 +132,7 @@ export default {
             }
           });
 
-          this.$store.dispatch("account/update", {
+          this.$store.dispatch("account/putAccount", {
             token: this.$cookies.get("token"),
             field: "avatar",
             avatar: this.imageFile.name

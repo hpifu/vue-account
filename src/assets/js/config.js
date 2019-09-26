@@ -10,7 +10,7 @@ export default {
         org: "HPiFu",
         api: {
             account: "http://127.0.0.1:16060",
-            cloud: "https://127.0.0.1:16061"
+            cloud: "http://127.0.0.1:16061"
         }
     }
 }
