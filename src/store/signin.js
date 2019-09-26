@@ -18,9 +18,9 @@ const actions = {
     signIn({ state }) {
         return api.signIn(state.username, state.password)
     },
-    verify({ state }, type) {
+    verifyAccount({ state }, type) {
         if (type == "username") {
-            return api.verify("username", state.username)
+            return api.verifyAccount("username", state.username)
         }
     },
 }

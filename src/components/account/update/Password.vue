@@ -17,7 +17,7 @@
               v-model="oldPassword"
               label="老密码"
               hint="使用8个或更多字符(字母、数字和符号的组合)"
-              :append-icon="show1 ? 'visibility' : 'visibility_off'"
+              :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
               :type="show1 ? 'text' : 'password'"
               :rules="[rules.required, rules.atleast8characters]"
               :error-messages="errors"
@@ -32,7 +32,7 @@
               v-model="password"
               label="新密码"
               hint="使用8个或更多字符(字母、数字和符号的组合)"
-              :append-icon="show2 ? 'visibility' : 'visibility_off'"
+              :append-icon="show2 ? 'mdi-eye' : 'mdi-eye-off'"
               :type="show2 ? 'text' : 'password'"
               :rules="[rules.required, rules.atleast8characters]"
               @click:append="show2 = !show2"
@@ -71,16 +71,17 @@ export default {
     async validate() {
       if (this.$refs.form.validate()) {
         try {
-          const res = await this.$store.dispatch("account/update", {
+          const res = await this.$store.dispatch("account/putAccount", {
             token: this.$cookies.get("token"),
             field: "password",
             password: this.password,
             oldPassword: this.oldPassword
           });
-          if (!res.ok) {
-            this.errors = [res.err];
+          if (res.status != 202) {
+            this.errors = [res.data];
             return;
           }
+          this.errors = [];
           this.$router.go(-1);
         } catch (error) {
           console.log(error);

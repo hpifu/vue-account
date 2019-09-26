@@ -13,8 +13,8 @@ export default {
         )
         return res.data
     },
-    async verify(field, value) {
-        const res = await axios.get(cf.api.account + "/verify",
+    async verifyAccount(field, value) {
+        const res = await axios.get(cf.api.account + "/verify/account",
             {
                 params: {
                     field, value
@@ -24,11 +24,11 @@ export default {
         );
         return res.data
     },
-    async genAuthCode(type, value, firstName, lastName) {
+    async postAuthCode(type, value, firstName, lastName) {
         if (type == "email") {
-            const res = await axios.post(cf.api.account + "/genauthcode",
+            const res = await axios.post(cf.api.account + "/authcode/email",
                 {
-                    type, firstName, lastName,
+                    firstName, lastName,
                     email: value,
                 },
                 { withCredentials: true }
@@ -36,9 +36,9 @@ export default {
             return res.data
         }
         if (type == "phone") {
-            const res = await axios.post(cf.api.account + "/genauthcode",
+            const res = await axios.post(cf.api.account + "/authcode/phone",
                 {
-                    type, firstName, lastName,
+                    firstName, lastName,
                     phone: value,
                 },
                 { withCredentials: true }
@@ -48,18 +48,18 @@ export default {
     },
     async verifyAuthCode(type, value, code) {
         if (type == "email") {
-            const res = await axios.get(cf.api.account + "/verifyauthcode", {
+            const res = await axios.get(cf.api.account + "/verify/authcode/email", {
                 params: {
-                    type, code, email: value,
+                    code, email: value,
                 },
                 withCredentials: true
             });
             return res.data
         }
         if (type == "phone") {
-            const res = await axios.get(cf.api.account + "/verifyauthcode", {
+            const res = await axios.get(cf.api.account + "/verify/authcode/phone", {
                 params: {
-                    type, code, phone: value,
+                    code, phone: value,
                 },
                 withCredentials: true
             });
@@ -67,7 +67,7 @@ export default {
         }
     },
     SignUp({ email, phone, password, firstName, lastName, birthday, gender, code }, callback, fallback) {
-        axios.put(cf.api.account + "/account", {
+        axios.post(cf.api.account + "/account", {
             email, phone, password, firstName, lastName, birthday, gender, code
         }).then(callback).catch(fallback);
     },
@@ -76,11 +76,11 @@ export default {
             withCredentials: true
         }).then(callback).catch(fallback);
     },
-    async update(token, obj) {
-        const res = await axios.post(cf.api.account + "/update",
+    async putAccount(token, obj) {
+        const res = await axios.put(cf.api.account + "/account/" + token + "/" + obj.field,
             { ...obj, token },
             { withCredentials: true }
         );
-        return res.data
+        return res
     }
 }

@@ -39,20 +39,20 @@ const mutations = {
 }
 
 const actions = {
-    verify({ state }, type) {
+    verifyAccount({ state }, type) {
         if (type == "email") {
-            return api.verify("email", state.email)
+            return api.verifyAccount("email", state.email)
         }
         if (type == "phone") {
-            return api.verify("phone", state.phone)
+            return api.verifyAccount("phone", state.phone)
         }
     },
-    genAuthCode({ state }, type) {
+    postAuthCode({ state }, type) {
         if (type == "email") {
-            return api.genAuthCode(type, state.email, state.firstName, state.lastName)
+            return api.postAuthCode(type, state.email, state.firstName, state.lastName)
         }
         if (type == "phone") {
-            return api.genAuthCode(type, state.phone, state.firstName, state.lastName)
+            return api.postAuthCode(type, state.phone, state.firstName, state.lastName)
         }
     },
     verifyAuthCode({ state }, type) {

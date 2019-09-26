@@ -46,16 +46,16 @@ const mutations = {
 }
 
 const actions = {
-    verify({ commit }, { field, email, phone }) {
+    verifyAccount({ commit }, { field, email, phone }) {
         if (field == "email") {
-            const res = api.verify("email", email)
+            const res = api.verifyAccount("email", email)
             if (res.ok) {
                 commit("setEmail", email)
             }
             return res
         }
         if (field == "phone") {
-            const res = api.verify("phone", phone)
+            const res = api.verifyAccount("phone", phone)
             if (res.ok) {
                 commit("setPhone", phone)
             }
@@ -79,49 +79,49 @@ const actions = {
             console.log(err)
         })
     },
-    async update({ commit }, { token, field, firstName, lastName, birthday, gender, password, oldPassword, email, phone, avatar }) {
+    async putAccount({ commit }, { token, field, firstName, lastName, birthday, gender, password, oldPassword, email, phone, avatar }) {
         if (field == "name") {
-            const res = await api.update(token, { field, firstName, lastName })
-            if (res.ok) {
+            const res = await api.putAccount(token, { field, firstName, lastName })
+            if (res.status == 202) {
                 commit("setFirstName", firstName)
                 commit("setLastName", lastName)
             }
             return res
         }
         if (field == "birthday") {
-            const res = await api.update(token, { field, birthday })
-            if (res.ok) {
+            const res = await api.putAccount(token, { field, birthday })
+            if (res.status == 202) {
                 commit("setBirthday", birthday)
             }
             return res
         }
         if (field == "gender") {
-            const res = await api.update(token, { field, gender })
-            if (res.ok) {
+            const res = await api.putAccount(token, { field, gender })
+            if (res.status == 202) {
                 commit("setGender", gender)
             }
             return res
         }
         if (field == "password") {
-            return await api.update(token, { field, password, oldPassword })
+            return await api.putAccount(token, { field, password, oldPassword })
         }
         if (field == "email") {
-            const res = await api.update(token, { field, email })
-            if (res.ok) {
+            const res = await api.putAccount(token, { field, email })
+            if (res.status == 202) {
                 commit("setEmail", email)
             }
             return res
         }
         if (field == "phone") {
-            const res = await api.update(token, { field, phone })
-            if (res.ok) {
+            const res = await api.putAccount(token, { field, phone })
+            if (res.status == 202) {
                 commit("setPhone", phone)
             }
             return res
         }
         if (field == "avatar") {
-            const res = await api.update(token, { field, avatar })
-            if (res.ok) {
+            const res = await api.putAccount(token, { field, avatar })
+            if (res.status == 202) {
                 commit("setAvatar", avatar)
             }
             return res

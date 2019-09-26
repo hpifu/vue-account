@@ -62,18 +62,22 @@ export default {
       if (this.$refs.form.validate()) {
         this.loading = true;
         try {
-          const okTips1 = await this.$store.dispatch(
-            "signin/verify",
+          const res1 = await this.$store.dispatch(
+            "signin/verifyAccount",
             "username"
           );
-          if (!okTips1.ok) {
-            this.usernameErrors = [okTips1.tip];
+          if (res1) {
+            this.usernameErrors = [res1];
             return;
+          } else {
+            this.usernameErrors = [];
           }
-          const res = await this.$store.dispatch("signin/signIn");
-          if (!res.valid) {
-            this.passwrodErrors = ["密码错误"];
+          const res2 = await this.$store.dispatch("signin/signIn");
+          if (res2) {
+            this.passwrodErrors = [res2];
             return;
+          } else {
+            this.passwrodErrors = [];
           }
           this.$router.push("/account");
         } catch (error) {

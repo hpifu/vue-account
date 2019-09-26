@@ -135,17 +135,20 @@ export default {
       if (this.$refs.form.validate()) {
         this.loading = true;
         try {
-          const okTips1 = await this.$store.dispatch("signup/verify", "email");
-          if (!okTips1.ok) {
-            this.errors = [okTips1.tip];
-            return;
-          }
-          const okTips2 = await this.$store.dispatch(
-            "signup/genAuthCode",
+          const res1 = await this.$store.dispatch(
+            "signup/verifyAccount",
             "email"
           );
-          if (!okTips2.ok) {
-            this.errors = [okTips2.tip];
+          if (res1) {
+            this.errors = [res1];
+            return;
+          }
+          const res2 = await this.$store.dispatch(
+            "signup/postAuthCode",
+            "email"
+          );
+          if (res2) {
+            this.errors = [res2];
             return;
           }
           this.$router.push("/signup/verifyemail");

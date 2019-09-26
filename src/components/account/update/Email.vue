@@ -59,25 +59,26 @@ export default {
 
         this.loading = true;
         try {
-          const okTips = await this.$store.dispatch("account/verify", {
+          const res1 = await this.$store.dispatch("account/verifyAccount", {
             field: "email",
             email: this.email
           });
-          if (!okTips.ok) {
-            this.errors = [okTips.tip];
+          if (res1) {
+            this.errors = [res1];
             return;
           }
+          this.errors = [];
 
-          const res = await this.$store.dispatch("account/update", {
+          const res = await this.$store.dispatch("account/putAccount", {
             token: this.$cookies.get("token"),
             field: "email",
             email: this.email
           });
-          console.log(res);
-          if (!res.ok) {
-            this.errors = [res.err];
+          if (res.status != 202) {
+            this.errors = ["更新错误"];
             return;
           }
+          this.errors = [];
           this.$router.go(-1);
         } catch (error) {
           console.log(error);

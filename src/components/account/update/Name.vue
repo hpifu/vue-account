@@ -71,17 +71,17 @@ export default {
 
         this.loading = true;
         try {
-          const res = await this.$store.dispatch("account/update", {
+          const res = await this.$store.dispatch("account/putAccount", {
             token: this.$cookies.get("token"),
             field: "name",
             firstName: this.firstName,
             lastName: this.lastName
           });
-          console.log(res);
-          if (!res.ok) {
-            this.errors = [res.err];
+          if (res.status != 202) {
+            this.errors = ["更新错误"];
             return;
           }
+          this.errors = [];
           this.$router.go(-1);
         } catch (error) {
           console.log(error);

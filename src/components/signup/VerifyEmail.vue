@@ -66,13 +66,13 @@ export default {
       if (this.$refs.form.validate()) {
         this.loading = true;
         try {
-          const okTips1 = await this.$store.dispatch(
+          const res = await this.$store.dispatch(
             "signup/verifyAuthCode",
             "email"
           );
-          console.log(okTips1);
-          if (!okTips1.ok) {
-            this.errors = [okTips1.tip];
+          console.log(res);
+          if (res) {
+            this.errors = [res];
             return;
           }
           this.$router.push("/signup/privacy");
