@@ -20,7 +20,7 @@
               <v-avatar size="40" @click="pickFile">
                 <v-img
                   v-if="this.$store.state.account.avatar && loadSuccess"
-                  :src="this.$config.api.cloud + '/resource?name=' + this.$store.state.account.avatar + '&token='+ this.$cookies.get('token')"
+                  :src="this.$config.api.cloud + '/resource/' + this.$cookies.get('token') + '?name=' + this.$store.state.account.avatar"
                   v-on:error="loadSuccess = false"
                 ></v-img>
                 <v-icon v-else large>mdi-account-circle</v-icon>
@@ -123,14 +123,15 @@ export default {
           this.imageFile = files[0];
           let formData = new FormData();
           formData.append("file", this.imageFile);
-          axios.post(this.$config.api.cloud + "/upload", formData, {
-            headers: {
-              "Content-Type": "multipart/form-data"
-            },
-            params: {
-              token: this.$cookies.get("token")
+          axios.post(
+            this.$config.api.cloud + "/upload/" + this.$cookies.get("token"),
+            formData,
+            {
+              headers: {
+                "Content-Type": "multipart/form-data"
+              }
             }
-          });
+          );
 
           this.$store.dispatch("account/putAccount", {
             token: this.$cookies.get("token"),
