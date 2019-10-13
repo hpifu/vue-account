@@ -79,7 +79,11 @@ export default {
           } else {
             this.passwrodErrors = [];
           }
-          this.$router.push("/account");
+          if (this.$route.query.from) {
+            window.location = this.$route.query.from;
+          } else {
+            this.$router.push("/account");
+          }
         } catch (error) {
           this.$router.push("/signin/sorry");
         } finally {
