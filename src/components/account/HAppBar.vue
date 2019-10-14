@@ -12,7 +12,7 @@
         <v-img
           v-if="this.$store.state.account.avatar && loadSuccess"
           v-on:error="loadSuccess = false"
-          :src="this.$config.api.cloud + '/resource/' + this.$cookies.get('token') + '?name=' + this.$store.state.account.avatar"
+          :src="this.$config.api.cloud + '/resource/' + this.$store.state.account.id + '?token=' + this.$cookies.get('token') + '&name=' + this.$store.state.account.avatar"
         ></v-img>
         <v-icon v-else large>mdi-account-circle</v-icon>
       </v-avatar>
