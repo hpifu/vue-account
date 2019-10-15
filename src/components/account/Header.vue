@@ -24,7 +24,7 @@
       v-else
       :href="this.$config.web.account + '/signin?from=' + this.$config.web.tech"
       :ifcond="this.$store.state.account.avatar"
-      :src="this.$config.api.cloud + '/resource/' + this.$store.state.account.id + '?token=' + this.$cookies.get('token') + '&name=' + this.$store.state.account.avatar"
+      :src="this.$config.api.cloud + '/avatar/' + this.$store.state.account.id + '?name=' + this.$store.state.account.avatar"
     />
   </v-app-bar>
 </template>
