@@ -65,10 +65,12 @@ export default {
             return res.data;
         }
     },
-    SignUp({ email, phone, password, firstName, lastName, birthday, gender, code }: {
-        email: string, phone: string, password: string, firstName: string,
-        lastName: string, birthday: string, gender: number, code: string,
-    }, callback: any, fallback: any) {
+    SignUp(
+        { email, phone, password, firstName, lastName, birthday, gender, code }: {
+            email: string, phone: string, password: string, firstName: string,
+            lastName: string, birthday: string, gender: number, code: string,
+        },
+        callback: any, fallback: any) {
         axios.post(config.api.account + '/account', {
             email, phone, password, firstName, lastName, birthday, gender, code,
         }).then(callback).catch(fallback);

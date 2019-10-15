@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <h-app-bar />
+    <Header />
     <h-sider />
 
     <v-content>
@@ -17,14 +17,14 @@
 </template>
 
 <script>
-import HAppBar from "../components/account/HAppBar";
+import Header from "../components/account/Header";
 import HSider from "../components/account/HSider";
 import HIntroduction from "../components/account/HIntroduction";
 
 export default {
   name: "Account",
   components: {
-    HAppBar,
+    Header,
     HSider,
     HIntroduction
   },
