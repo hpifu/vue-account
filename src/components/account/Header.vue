@@ -22,7 +22,7 @@
     </v-btn>
     <avatar
       v-else
-      :href="this.$config.web.account + '/signin?from=' + this.$config.web.tech"
+      :href="this.$config.web.account"
       :ifcond="this.$store.state.account.avatar"
       :src="this.$config.api.cloud + '/avatar/' + this.$store.state.account.id + '?name=' + this.$store.state.account.avatar"
     />
