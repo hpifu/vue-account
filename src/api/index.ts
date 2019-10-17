@@ -76,12 +76,12 @@ export default {
         }).then(callback).catch(fallback);
     },
     GETAccount(token: any, callback: any, fallback: any) {
-        axios.get(config.api.account + '/account/' + token, {
+        axios.get(config.api.account + '/account/token' + token, {
             withCredentials: true,
         }).then(callback).catch(fallback);
     },
     async putAccount(token: string, obj: any) {
-        const res = await axios.put(config.api.account + '/account/' + token + '/' + obj.field,
+        const res = await axios.put(config.api.account + '/account/token' + token + '/' + obj.field,
             { ...obj, token },
             { withCredentials: true },
         );
