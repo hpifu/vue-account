@@ -11,7 +11,7 @@
     </v-btn>
     <v-btn
       v-if="!this.$store.state.account.isSignedIn"
-      :href="this.$config.web.account + '/signin?from=' + this.$config.web.tech"
+      :href="this.$config.web.account + '/signin'"
       class="ma-2"
       outlined
       x-small
@@ -22,7 +22,7 @@
     </v-btn>
     <avatar
       v-else
-      :href="this.$config.web.account"
+      :href="this.$config.web.account + '/signin'"
       :ifcond="this.$store.state.account.avatar"
       :src="this.$config.api.cloud + '/avatar/' + this.$store.state.account.id + '?name=' + this.$store.state.account.avatar"
     />
